@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Previous head content remains the same -->
+    <style>
+        /* Add this to your existing CSS or style.css */
+        .chatbot-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+        }
+        
+        .chatbot-iframe {
+            display: none;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .chatbot-iframe.active {
+            display: block;
+        }
+        
+        .chatbot-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #ff6b6b;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            border: none;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .chatbot-button:hover {
+            background-color: #ff5252;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- All your existing website content remains the same -->
+    
+    <!-- Add this just before the closing </body> tag -->
+    <div class="chatbot-container">
+        <iframe 
+            class="chatbot-iframe"
+            allow="microphone;"
+            width="350"
+            height="430"
+            src="https://console.dialogflow.com/api-client/demo/embedded/b3e4ef08-ac2b-44ff-8be0-002c0babb8d2">
+        </iframe>
+    </div>
+    
+    <button class="chatbot-button" onclick="toggleChatbot()">
+        <i class="fas fa-robot"></i>
+    </button>
+    
+    <script>
+        function toggleChatbot() {
+            const iframe = document.querySelector('.chatbot-iframe');
+            iframe.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

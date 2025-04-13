@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The IndoNep Eater - Authentic Indo-Nepali Fast Food</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #f9f5f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836') no-repeat center center/cover;
+            color: #fff;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #ff6b6b;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ff6b6b;
+            color: #fff;
+            padding: 10px 30px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #ff5252;
+            transform: scale(1.05);
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav ul li {
+            padding: 20px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #ff6b6b;
+        }
+        
+        /* Menu Section */
+        .menu {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #333;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #ff6b6b;
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .menu-item {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .menu-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .menu-item-content {
+            padding: 20px;
+        }
+        
+        .item-name {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .item-price {
+            font-size: 1.2rem;
+            color: #ff6b6b;
+            font-weight: 600;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Location Section */
+        .location {
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .map {
+            margin-top: 50px;
+            height: 400px;
+            background-color: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .address {
+            margin-top: 30px;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .social-icons {
+            margin: 20px 0;
+        }
+        
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            color: #ff6b6b;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <h1 class="logo">The IndoNep Eater</h1>
+            <p class="tagline">Where Indian & Nepali Flavors Collide</p>
+            <a href="#menu" class="btn">Explore Our Menu</a>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#location">Location</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2 class="section-title">Our Menu</h2>
+            <div class="menu-items">
+                <!-- Pav Bhaji -->
+                <div class="menu-item">
+                    <img src="https://source.unsplash.com/random/600x400/?pav-bhaji" alt="Pav Bhaji">
+                    <div class="menu-item-content">
+                        <h3 class="item-name">Pav Bhaji</h3>
+                        <p>A delicious blend of mashed vegetables with spices, served with buttered bread rolls.</p>
+                        <p class="item-price">Rs. 250</p>
+                    </div>
+                </div>
+                
+                <!-- Chole Bhature -->
+                <div class="menu-item">
+                    <img src="https://source.unsplash.com/random/600x400/?chole-bhature" alt="Chole Bhature">
+                    <div class="menu-item-content">
+                        <h3 class="item-name">Chole Bhature</h3>
+                        <p>Spicy chickpea curry served with deep-fried bread, a North Indian classic.</p>
+                        <p class="item-price">Rs. 280</p>
+                    </div>
+                </div>
+                
+                <!-- Pizza -->
+                <div class="menu-item">
+                    <img src="https://source.unsplash.com/random/600x400/?pizza" alt="Pizza">
+                    <div class="menu-item-content">
+                        <h3 class="item-name">IndoNep Special Pizza</h3>
+                        <p>Our signature pizza with a fusion of Indian and Nepali toppings on a crispy crust.</p>
+                        <p class="item-price">Rs. 350</p>
+                    </div>
+                </div>
+                
+                <!-- Mango Lass -->
+                <div class="menu-item">
+                    <img src="https://source.unsplash.com/random/600x400/?mango-lassi" alt="Mango Lass">
+                    <div class="menu-item-content">
+                        <h3 class="item-name">Mango Lass</h3>
+                        <p>Refreshing yogurt-based drink with sweet mango pulp, a perfect summer cooler.</p>
+                        <p class="item-price">Rs. 180</p>
+                    </div>
+                </div>
+                
+                <!-- Masala Dosa -->
+                <div class="menu-item">
+                    <img src="https://source.unsplash.com/random/600x400/?masala-dosa" alt="Masala Dosa">
+                    <div class="menu-item-content">
+                        <h3 class="item-name">Masala Dosa</h3>
+                        <p>Crispy rice crepe stuffed with spiced potato filling, served with sambar and chutney.</p>
+                        <p class="item-price">Rs. 220</p>
+                    </div>
+                </div>
+                
+                <!-- Biryani -->
+                <div class="menu-item">
+                    <img src="https://source.unsplash.com/random/600x400/?biryani" alt="Biryani">
+                    <div class="menu-item-content">
+                        <h3 class="item-name">Hyderabadi Biryani</h3>
+                        <p>Fragrant basmati rice cooked with tender meat and aromatic spices, a royal dish.</p>
+                        <p class="item-price">Rs. 320</p>
+                    </div>
+                </div>
+                
+                <!-- Vada Pav -->
+                <div class="menu-item">
+                    <img src="https://source.unsplash.com/random/600x400/?vada-pav" alt="Vada Pav">
+                    <div class="menu-item-content">
+                        <h3 class="item-name">Vada Pav</h3>
+                        <p>Mumbai's favorite street food - spicy potato fritter in a bun with chutneys.</p>
+                        <p class="item-price">Rs. 150</p>
+                    </div>
+                </div>
+                
+                <!-- Rava Dosa -->
+                <div class="menu-item">
+                    <img src="https://source.unsplash.com/random/600x400/?rava-dosa" alt="Rava Dosa">
+                    <div class="menu-item-content">
+                        <h3 class="item-name">Rava Dosa</h3>
+                        <p>Crispy semolina crepe with a lacy texture, served with coconut chutney and sambar.</p>
+                        <p class="item-price">Rs. 240</p>
+                    </div>
+                </div>
+                
+                <!-- Samosa -->
+                <div class="menu-item">
+                    <img src="https://source.unsplash.com/random/600x400/?samosa" alt="Samosa">
+                    <div class="menu-item-content">
+                        <h3 class="item-name">Samosa</h3>
+                        <p>Crispy pastry filled with spiced potatoes and peas, served with mint chutney.</p>
+                        <p class="item-price">Rs. 120 (2 pieces)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About The IndoNep Eater</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Welcome to The IndoNep Eater, where we bring you the best of both Indian and Nepali cuisines under one roof. Our journey began with a simple idea - to create a space where food lovers can experience authentic flavors from both cultures.</p>
+                    <p>Our chefs carefully prepare each dish using traditional recipes passed down through generations, combined with high-quality ingredients sourced locally. Whether you're craving the spicy flavors of Indian street food or the hearty comfort of Nepali dishes, we've got something for everyone.</p>
+                    <p>At The IndoNep Eater, we believe that good food brings people together. Our warm and welcoming atmosphere makes us the perfect spot for family dinners, casual meetups, or even solo dining adventures.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://source.unsplash.com/random/600x400/?restaurant-interior" alt="Restaurant Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Location Section -->
+    <section id="location" class="location">
+        <div class="container">
+            <h2 class="section-title">Find Us</h2>
+            <div class="map">
+                <!-- Embedded Google Map would go here -->
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.460394430742!2d85.32097531506206!3d27.70554438279345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb1908434cb5c7%3A0x1fdf2a4d5f1b4f8f!2sGaushala%2C%20Kathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2s!4v1620000000000!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="address">
+                <p><i class="fas fa-map-marker-alt"></i> Gaushala, Kathmandu, Nepal</p>
+                <p><i class="fas fa-phone"></i> +977-1-4567890</p>
+                <p><i class="fas fa-clock"></i> Open daily: 10:00 AM - 10:00 PM</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <h3>The IndoNep Eater</h3>
+            <p>Authentic Indo-Nepali Fast Food Experience</p>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2023 The IndoNep Eater. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
